@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <script type="text/javascript">
+      function add_one(n) {
+        return n+1;
+      }
+      function add_two(n) {
+        return n+2;
+      }
+      function substract_three(n) {
+        return n-3;
+      }
+      function multiply_by_five(n) {
+        return n*5;
+      }
+      function multiply_by_three(n) {
+        return n*3;
+      }
+      function executa() {
+
+      var i = document.getElementById("nr");
+      i=i.value;
+      var functiile = document.getElementById("func");
+      functiile = functiile.value;
+      functiile = functiile.substring(1, functiile.length - 1);
+      var fvect = functiile.split(",");
+        var output="";
+        for (var j=0;j<fvect.length;j++) {
+          switch (fvect[j]) {
+            case "add_one":
+	      if(j!=0) output=output.concat(",");
+              output=output.concat(add_one(parseInt(i)));
+              break;
+            case "add_two":
+	      if(j!=0) output=output.concat(",");
+
+              output=output.concat(add_two(parseInt(i)));
+              break;
+            case "subtract_three":
+	      if(j!=0) output=output.concat(",");
+
+              output=output.concat(subtract_three(parseInt(i)));
+              break;
+            case "multiply_by_five":	    
+              if(j!=0) output=output.concat(",");
+
+              output=output.concat(multiply_by_five(parseInt(i)));
+              break;
+            case "multiply_by_three":
+	      if(j!=0) output=output.concat(",");
+
+              output=output.concat(multiply_by_three(parseInt(i)));
+              break;
+
+            default:
+              break;
+          }
+        }
+        document.write("["+output+"]");
+      }
+    </script>
+    <title></title>
+  </head>
+  <body>
+    <p>
+      Introduceti numarul:
+    </p>
+    <form>
+      <input type="text" id="nr">
+	<p>
+      Introduceti functiile:
+	</p>   
+   <input type="text" id="func">
+      <input type="button" value="Executa" onclick="executa();">
+    </form>
+  </body>
+</html>
